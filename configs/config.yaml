@@ -1,0 +1,5 @@
+video_path: /Volumes/projeto_visaocomputacional/default/videos/video-cut.mp4
+frames_dir: /Volumes/projeto_visaocomputacional/default/frames
+sample_rate: 2
+model_dir: /Volumes/projeto_visaocomputacional/default/models
+num_classes: 2

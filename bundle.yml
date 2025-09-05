@@ -1,0 +1,30 @@
+bundle:
+  name: projeto-futebol
+
+resources:
+  jobs:
+    futebol_pipeline:
+      name: futebol_pipeline
+      tasks:
+        - task_key: process
+          notebook_task:
+            # notebook será enviado para o root_path do seu workspace; referencie-o explicitamente
+            notebook_path: /Workspace/Users/<seu-usuario>/projeto-futebol/Runner
+        
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      # substitua com o host do seu workspace de desenvolvimento
+      host: https://<dbc-a2e286b1-a87c>.cloud.databricks.com/
+      root_path: /Workspace/Users/<seu-usuario>/projeto-futebol/${bundle.name}
+
+  prd:
+    mode: production
+    workspace:
+      # substitua com o host do seu workspace de produção
+      host: https://<dbc-a2e286b1-a87c>.cloud.databricks.com/
+      root_path: /Workspace/Users/<seu-usuario>/projeto-futebol/.bundle/${bundle.name}/${bundle.target}
+
